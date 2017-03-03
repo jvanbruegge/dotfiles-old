@@ -41,5 +41,4 @@
     m = merge
     rhom = reset --hard origin/master
 
-    pretty = log --pretty=oneline --abbrev-commit --graph
-    l = pretty
+    l = log --pretty=oneline --abbrev-commit --graph
