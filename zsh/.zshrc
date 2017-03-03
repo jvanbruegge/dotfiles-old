@@ -44,6 +44,7 @@ REPORTTIME=30
 #####################################################################
 
 plugins=(
+    systemd
     colored-man-pages
     extract
     history-substring-search
