@@ -25,8 +25,30 @@ set encoding=utf-8
 "Remove splash screen
 set shortmess+=I
 
-"Show line numbers
-set relativenumber
+"Toggle absolute line numbers
+function ToggleNumber()
+    if &number
+        set norelativenumber
+        set nonumber
+    else
+        set norelativenumber
+        set number
+    endif
+endfunction
+
+"Toggle relative line numbers
+function ToggleRelNumber()
+    if &relativenumber
+        set nonumber
+        set norelativenumber
+    else
+        set number
+        set relativenumber
+    endif
+endfunction
+
+map <F2> :call ToggleNumber() <CR>
+map <F3> :call ToggleRelNumber() <CR>
 
 "Highlight matching brackets, etc
 set showmatch
@@ -94,7 +116,8 @@ call vundle#end()
 filetype plugin indent on
 
 "Plugin config
-"let g:airline_theme='solarized'
+let g:airline_theme = 'badwolf'
+let g:airline_powerline_fonts = 1
 
 "YouCompleteMe configuration
 let g:ycm_confirm_extra_conf = 0
