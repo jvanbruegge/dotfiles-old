@@ -1,0 +1,45 @@
+[user]
+    email = supermanitu@gmail.com
+    name = Jan van Brügge
+
+[merge]
+    ff = false
+    tool = vimdiff
+
+[mergetool]
+    prompt = true
+
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[diff]
+    tool = vimdiff
+
+[difftool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE
+
+[pull]
+    ff = true
+
+[alias]
+    c = commit
+    ca = commit -a
+    caa = commit -a --amend
+
+    ch = checkout
+    chb = checkout -b
+
+    a = add
+    b = branch
+    d = diff
+    s = status
+
+    st = stash
+    stp = stash pop
+
+    p = pull
+    m = merge
+    rhom = reset --hard origin/master
+
+    pretty = log --pretty=oneline --abbrev-commit --graph
+    l = pretty
