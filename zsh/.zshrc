@@ -13,7 +13,8 @@ export CONFIG_DIR=$HOME/dotfiles/zsh
 export ZSH=$CONFIG_DIR/oh-my-zsh
 export ZSH_CUSTOM=$CONFIG_DIR/omz-custom
 
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="agnoster"
 #ZSH_THEME="amuse"
 
 #####################################################################
