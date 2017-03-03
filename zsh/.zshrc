@@ -3,6 +3,7 @@
 #####################################################################
 
 export CONFIG_DIR=$HOME/dotfiles/zsh
+export DEFAULT_USER=jan
 
 [ -e "${CONFIG_DIR}/.env" ] && source "${CONFIG_DIR}/.env"
 
@@ -12,6 +13,8 @@ export CONFIG_DIR=$HOME/dotfiles/zsh
 
 export ZSH=$CONFIG_DIR/oh-my-zsh
 export ZSH_CUSTOM=$CONFIG_DIR/omz-custom
+
+POWERLEVEL9K_DISABLE_RPROMPT="true"
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 #ZSH_THEME="agnoster"
