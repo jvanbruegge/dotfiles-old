@@ -2,7 +2,7 @@
 # General
 #####################################################################
 
-export CONFIG_DIR=$HOME/.config/zsh
+export CONFIG_DIR=$HOME/dotfiles/zsh
 
 [ -e "${CONFIG_DIR}/.env" ] && source "${CONFIG_DIR}/.env"
 
