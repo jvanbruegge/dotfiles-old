@@ -37,7 +37,8 @@
     st = stash
     stp = stash pop
 
-    p = pull
+    p = push
+    pu = pull
     m = merge
     rhom = reset --hard origin/master
 
