@@ -1,0 +1,9 @@
+[submodule "zsh/omz-custom/zsh-syntax-highlighting"]
+	path = zsh/omz-custom/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/omz-custom/zsh-256color"]
+	path = zsh/omz-custom/zsh-256color
+	url = https://github.com/chrissicool/zsh-256color.git
+[submodule "zsh/omz-custom/z"]
+	path = zsh/omz-custom/z
+	url = https://github.com/rupa/z.git

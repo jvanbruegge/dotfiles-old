@@ -11,7 +11,7 @@ export CONFIG_DIR=$HOME/.config/zsh
 #####################################################################
 
 export ZSH=$CONFIG_DIR/oh-my-zsh
-export ZSH_CUSTOM=$CONFIG_DIR/.omz-custom
+export ZSH_CUSTOM=$CONFIG_DIR/omz-custom
 
 ZSH_THEME="agnoster"
 #ZSH_THEME="amuse"
