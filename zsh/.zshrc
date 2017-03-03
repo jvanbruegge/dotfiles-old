@@ -41,7 +41,6 @@ REPORTTIME=30
 #####################################################################
 
 plugins=(
-    vi-mode # Load vi-mode first
     colored-man-pages
     extract
     history-substring-search
