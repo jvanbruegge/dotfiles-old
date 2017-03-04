@@ -4,6 +4,41 @@ set nocompatible
 "Disable filetype detection during init
 filetype off
 
+"Vundle with automatic setup
+let iCanHazVundle=1
+let vundle_readme=expand('~/.config/nvim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle..."
+    echo ""
+    silent !mkdir -p ~/.config/nvim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.config/nvim/bundle/vundle
+    let iCanHazVundle=0
+endif
+set rtp+=~/.config/nvim/bundle/vundle
+call vundle#begin('~/.config/nvim/bundle')
+
+Plugin 'gmarik/vundle'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ciaranm/securemodelines'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/syntastic'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Valloric/YouCompleteMe'
+
+if iCanHazVundle == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
+endif
+
+call vundle#end()
+filetype plugin indent on
+
+
+
 "Enable syntax highlighting
 syntax enable
 
@@ -81,39 +116,6 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
-
-"Vundle with automatic setup
-let iCanHazVundle=1
-let vundle_readme=expand('~/.config/nvim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.config/nvim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.config/nvim/bundle/vundle
-    let iCanHazVundle=0
-endif
-set rtp+=~/.config/nvim/bundle/vundle
-call vundle#begin('~/.config/nvim/bundle')
-
-Plugin 'gmarik/vundle'
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ciaranm/securemodelines'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Valloric/YouCompleteMe'
-
-if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :BundleInstall
-endif
-
-call vundle#end()
-filetype plugin indent on
 
 "Plugin config
 let g:airline_theme = 'badwolf'
