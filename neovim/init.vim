@@ -27,6 +27,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tikhomirov/vim-glsl'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
