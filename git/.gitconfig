@@ -29,6 +29,9 @@
     ch = checkout
     chb = checkout -b
 
+    r = rebase
+    ri = rebase -i
+
     a = add
     b = branch
     d = diff
