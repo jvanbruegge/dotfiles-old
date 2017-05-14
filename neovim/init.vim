@@ -28,6 +28,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'ntpeters/vim-better-whitespace'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
