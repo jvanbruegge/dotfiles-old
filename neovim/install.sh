@@ -11,3 +11,6 @@ dir=$(pwd)
 cd "$HOME/.config/nvim/bundle/YouCompleteMe"
 ./install.py --clang-completer --system-libclang
 cd "$dir"
+
+ln -s "$HOME/dotfiles/neovim/syntax" "$HOME/.config/nvim/syntax"
+ln -s "$HOME/dotfiles/neovim/filetype.vim" "$HOME/.config/nvim/filetype.vim"
