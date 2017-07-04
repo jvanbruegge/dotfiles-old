@@ -41,8 +41,13 @@
     stp = stash pop
 
     p = push
+    pso = push --set-upstream origin HEAD
     pu = pull
     m = merge
+
     rhom = reset --hard origin/master
+    rhh = reset --hard HEAD
+
+    uu = !git fetch upstream && git rebase upstream/master
 
     l = log --pretty=oneline --abbrev-commit --graph

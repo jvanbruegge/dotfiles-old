@@ -14,3 +14,4 @@ cd "$dir"
 
 ln -s "$HOME/dotfiles/neovim/syntax" "$HOME/.config/nvim/syntax"
 ln -s "$HOME/dotfiles/neovim/filetype.vim" "$HOME/.config/nvim/filetype.vim"
+ln -s "$HOME/dotfiles/neovim/.ycm_extra_conf.py" "$HOME/.config/nvim/.ycm_extra_conf.py"

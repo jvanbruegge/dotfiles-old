@@ -4,4 +4,5 @@ if exists("did_load_filetypes")
 endif
 augroup filetypedetect
     au! BufRead,BufNewFile *.ebnf		setfiletype ebnf
+    au! BufRead,BufNewFile *.abnf		setfiletype ebnf
 augroup END
