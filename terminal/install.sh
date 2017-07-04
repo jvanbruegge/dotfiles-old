@@ -22,7 +22,11 @@ echo "$config" | dconf load "$path/:$profile/"
 
 profiles=$(dconf read "$path/list")
 
-if [[ $profiles != *"'$profile'"* ]]; then
+echo "$profiles"
+
+if [[ $profiles == "" ]]; then
+    profiles="['$profile']"
+elif [[ $profiles != *"'$profile'"* ]]; then
     profiles=${profiles%?}
     profiles="$profiles, '$profile']"
 fi
