@@ -9,7 +9,7 @@ nvim +PluginInstall +qall
 
 dir=$(pwd)
 cd "$HOME/.config/nvim/bundle/YouCompleteMe"
-./install.py --clang-completer --system-libclang
+./install.py --clang-completer --system-libclang --racer-completer
 cd "$dir"
 
 ln -s "$HOME/dotfiles/neovim/syntax" "$HOME/.config/nvim/syntax"

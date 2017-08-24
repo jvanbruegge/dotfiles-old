@@ -28,6 +28,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'rust-lang/rust.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 
 if iCanHazVundle == 0
@@ -119,6 +120,9 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
+"Go to with leader g
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+
 "Plugin config
 let g:airline_theme = 'badwolf'
 let g:airline_powerline_fonts = 1
@@ -126,6 +130,7 @@ let g:airline_powerline_fonts = 1
 "YouCompleteMe configuration
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+let g:ycm_rust_src_path = '/usr/src/rust/src'
 let g:ycm_semantic_triggers =  {
             \   'c' : ['->', '.'],
             \   'objc' : ['->', '.'],
@@ -139,5 +144,6 @@ let g:ycm_semantic_triggers =  {
             \   'ruby' : ['.', '::'],
             \   'lua' : ['.', ':'],
             \   'erlang' : [':'],
-            \   'haskell' : ['.', 're!.']
+            \   'haskell' : ['.', 're!.'],
+            \   'rust' : ['.', '::']
             \ }
