@@ -35,6 +35,7 @@
     a = add
     b = branch
     d = diff
+    dc = diff --cached
     s = status
 
     st = stash

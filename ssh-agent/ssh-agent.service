@@ -1,0 +1,19 @@
+[Unit]
+Description=SSH key agent
+Wants=environment.target
+Before=environment.target
+IgnoreOnIsolate=true
+
+[Service]
+Type=forking
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -a $SSH_AUTH_SOCK
+ExecStartPost=/bin/sh -c "/usr/bin/ps --no-headers -o pid -C ssh-agent | tr -d '[:space:]' | sed 's/^/export SSH_AGENT_PID=/' > ~/.ssh/ssh-agent.properties"
+ExecStartPost=/bin/sh -c "echo '' >> ~/.ssh/ssh-agent.properties"
+ExecStartPost=/bin/sh -c "echo export SSH_AUTH_SOCK=${SSH_AUTH_SOCK} >> ~/.ssh/ssh-agent.properties"
+ExecStartPost=/usr/bin/systemctl --user set-environment SSH_AUTH_SOCK=${SSH_AUTH_SOCK}
+#ExecStop=/usr/bin/ssh-agent -k
+ExecStopPost=/bin/rm ${SSH_AUTH_SOCK}
+
+[Install]
+WantedBy=default.target
