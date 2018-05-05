@@ -15,17 +15,15 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'Shougo/neocomplcache'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'make release'}
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/syntastic'
-Plug 'leafgarland/typescript-vim'
+Plug 'kien/rainbow_parentheses.vim'
 
 call plug#end()
 
@@ -74,7 +72,6 @@ endfunction
 
 map <F2> :call ToggleNumber() <CR>
 map <F3> :call ToggleRelNumber() <CR>
-map <F4> :NERDTreeToggle <CR>
 
 "Highlight matching brackets, etc
 set showmatch
@@ -124,6 +121,10 @@ vnoremap <c-i> :call LanguageClient_textDocument_rangeFormatting()<CR>
 let g:airline_theme = 'badwolf'
 let g:airline_powerline_fonts = 1
 
+syntax enable
+set background=dark
+colorscheme solarized
+
 "Deplete completion
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -133,12 +134,13 @@ inoremap <expr><CR> pumvisible() ? "\<c-y>\<CR>" : "\<CR>"
 "LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
-    \ 'typescript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ 'javascript': ['typescript-language-server', '--stdio'],
+    \ 'typescript': ['typescript-language-server', '--stdio'],
     \ 'c': ['clangd'],
     \ 'cpp': ['clangd'],
     \ 'cs': ['/opt/omnisharp-roslyn/OmniSharp.exe', '--stdio', '--lsp'],
-    \ 'java': ['java', '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044', '-Declipse.application=org.eclipse.jdt.ls.core.id1', '-Dosgi.bundles.defaultStartLevel=4', '-Declipse.product=org.eclipse.jdt.ls.core.product', '-Dlog.protocol=true', '-Dlog.level=ALL', '-noverify', '-Xmx1G', '-jar', '/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar', '-configuration', '/usr/share/java/jdtls/config_linux', '-data', '~/workspace']
+    \ 'haskell': ['hie', '--lsp'],
+    \ 'java': ['jdtls', '-Dlog.level=ALL']
     \ }
 
 " Automatically start language servers.

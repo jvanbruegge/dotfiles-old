@@ -13,22 +13,18 @@ rustup component add rust-src
 
 # Typescript compiler + Language server
 pacaur -S npm nodejs
-sudo npm i -g typescript
-git clone https://github.com/sourcegraph/javascript-typescript-langserver.git
-cd javascript-typescript-langserver
-npm install
-npm run build
-cd ..
-sudo mv javascript-typescript-langserver /opt/
-sudo chmod +x /opt/javascript-typescript-langserver/lib/language-server-stdio.js
+sudo npm i -g typescript-language-server
 
 # C compiler + Language server
 pacaur -S clang clang-tools-extra
 
 # Haskell toolchain + Language server
-#git clone https://github.com/haskell/haskell-ide-engine
-#cd haskell-ide-engine
-#stack install
+pacaur -S stack
+git clone https://github.com/haskell/haskell-ide-engine
+cd haskell-ide-engine
+stack install
+cd ..
+rm -rf haskell-ide-engine
 
 # Java language server
 pacaur -S jdtls
