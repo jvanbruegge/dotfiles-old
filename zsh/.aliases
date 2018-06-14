@@ -5,4 +5,4 @@
 alias h='history'
 alias v='nvim'
 alias g='git'
-
+alias p='pnpm'

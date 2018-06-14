@@ -23,7 +23,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/syntastic'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -127,7 +127,6 @@ colorscheme solarized
 
 "Deplete completion
 let g:deoplete#enable_at_startup = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><CR> pumvisible() ? "\<c-y>\<CR>" : "\<CR>"
 
