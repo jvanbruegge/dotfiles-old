@@ -122,6 +122,7 @@ let g:airline_theme = 'badwolf'
 let g:airline_powerline_fonts = 1
 
 syntax enable
+let g:solarized_termtrans = 1
 set background=dark
 colorscheme solarized
 
