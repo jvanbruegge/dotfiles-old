@@ -25,6 +25,15 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/syntastic'
 Plug 'leafgarland/typescript-vim'
 
+"Fuzzy selection
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'vmchale/dhall-vim'
+
+"Tmux navigation
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 set hidden
@@ -106,13 +115,18 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
+nmap <leader>o :FZF<CR>
+nmap <leader>t :tabnew<CR>:FZF<CR>
+
+nnoremap <leader>n :tabnew 
+nnoremap H :tabp<CR>
+nnoremap L :tabn<CR>
+
 "Make split navigation easier
 nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 
 nnoremap <leader>h :call LanguageClient_textDocument_hover()<CR>
-nnoremap <leader>g :call LanguageClient_textDocument_definition()<CR>
+nnoremap <leader>g :call LanguageClient_textDocument_definition({'gotoCmd': 'tabnew'})<CR>
 nnoremap <leader>r :call LanguageClient_textDocument_rename()<CR>
 nnoremap <c-i> :call LanguageClient_textDocument_formatting()<CR>
 vnoremap <c-i> :call LanguageClient_textDocument_rangeFormatting()<CR>
@@ -145,3 +159,6 @@ let g:LanguageClient_serverCommands = {
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+
+"Disable annoying autoindent
+set indentkeys-=<:>
