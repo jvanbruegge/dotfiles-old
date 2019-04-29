@@ -28,8 +28,10 @@
 
     ch = checkout
     chb = checkout -b
+    chpr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
 
     r = rebase
+    rc = rebase --continue
     ri = rebase -i
 
     a = add
@@ -52,3 +54,6 @@
     uu = !git fetch upstream && git rebase upstream/master
 
     l = log --pretty=oneline --abbrev-commit --graph
+
+[core]
+	pager = less -F -X
