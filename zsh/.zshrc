@@ -52,6 +52,8 @@ plugins=(
     colored-man-pages
     extract
     history-substring-search
+    tmux
+    tmuxinator
     z
     zsh-256color
     zsh-syntax-highlighting
