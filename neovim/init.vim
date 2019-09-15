@@ -57,6 +57,14 @@ set encoding=utf-8
 set shortmess+=I
 set shortmess+=c
 
+augroup XML
+    autocmd!
+    autocmd FileType xml let g:xml_syntax_folding=1
+    autocmd FileType xml setlocal foldmethod=syntax
+    autocmd FileType xml :syntax on
+    autocmd FileType xml :%foldopen!
+augroup END
+
 "Toggle absolute line numbers
 function ToggleNumber()
     if &number
@@ -128,6 +136,7 @@ nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>h :call LanguageClient_textDocument_hover()<CR>
 nnoremap <leader>g :call LanguageClient_textDocument_definition({'gotoCmd': 'tabnew'})<CR>
 nnoremap <leader>r :call LanguageClient_textDocument_rename()<CR>
+nnoremap <leader>f :call LanguageClient_textDocument_references()<CR>
 nnoremap <c-i> :call LanguageClient_textDocument_formatting()<CR>
 vnoremap <c-i> :call LanguageClient_textDocument_rangeFormatting()<CR>
 
@@ -153,12 +162,14 @@ let g:LanguageClient_serverCommands = {
     \ 'c': ['clangd'],
     \ 'cpp': ['clangd'],
     \ 'cs': ['/opt/omnisharp-roslyn/OmniSharp.exe', '--stdio', '--lsp'],
-    \ 'haskell': ['hie', '--lsp'],
+    \ 'haskell': ['hie'],
     \ 'java': ['jdtls', '-Dlog.level=ALL']
     \ }
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+
+autocmd FileType haskell let g:LanguageClient_diagnosticsEnable = 0
 
 "Disable annoying autoindent
 set indentkeys-=<:>
